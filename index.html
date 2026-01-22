@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Cube</title>
+  <!-- Load model-viewer library -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* 3D Model Container */
+    model-viewer {
+      width: 70%;
+      height: 70vh;
+      --poster-color: transparent;
+    }
+
+    /* Floating Glassmorphism Info Card */
+    .info-card {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      padding: 24px;
+      width: 300px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      pointer-events: none; /* Allows interacting with the model behind the card */
+      z-index: 10;
+    }
+
+    h1 { margin: 0 0 10px 0; font-size: 1.5rem; }
+    p { margin: 0; font-size: 0.9rem; line-height: 1.6; opacity: 0.8; }
+  </style>
+</head>
+<body>
+
+  <!-- Floating UI -->
+  <div class="info-card">
+    <h1>3D Cube</h1>
+  </div>
+
+  <!-- Interactive 3D Model -->
+  <model-viewer 
+    src="new.glb"
+    camera-controls 
+    auto-rotate 
+    auto-rotate-delay="300"
+    rotation-speed="100%"
+    shadow-intensity="1.5" 
+    shadow-softness="1"
+    exposure="1"
+    environment-image="neutral"
+    ar>
+  </model-viewer>
+
+</body>
+</html>
